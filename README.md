@@ -4,16 +4,15 @@ MONAI Label enables application developers to build labeling apps in a serverles
 <p align="center"><img src="doc/img/MonaiLogo.jpg" alt="Monai Label Server"/></p>
 This Monai ICM version runs the label server in docker-compose.  
 
-
 # Installation
 ```bash
 cat /proc/driver/nvidia/version # check nvidia driver version
 sudo apt install nvidia-utils-510 # install matching nvidia driver
-./start.sh init # See OpenApi server at http://localhost:45681/
+./start.sh init # See OpenApi server at http://localhost:45681/ and Annotate the data at http://localhost:45681/ohif
 ```
-Then install either :
-- 3DSlicer plugin : https://docs.monai.io/projects/label/en/latest/quickstart.html#deepedit-annotation-using-ohif
-- DeepEdit Annotation Using OHIF : https://docs.monai.io/projects/label/en/latest/quickstart.html#deepedit-annotation-using-ohif
+Then either :
+- Use OHIF : Annotate the data in the DICOM server via the MONAI Label server at http://localhost:45681/ohif (https://docs.monai.io/projects/label/en/latest/quickstart.html#deepedit-annotation-using-ohif)
+- Use 3DSlicer plugin : (https://docs.monai.io/projects/label/en/latest/quickstart.html#deepedit-annotation-using-ohif)
 
 # Architecture
 https://docs.monai.io/projects/label/en/latest/appdeployment.html

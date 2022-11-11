@@ -1,21 +1,22 @@
 FROM projectmonai/monailabel
-# FROM projectmonai/monai
 
-ARG APP_TYPE=radiology
-ARG APP_PATH=/opt/monai/app_radiology
-ARG APP_PORT=80
-ARG APP_TASK_NAME=Task09_Spleen
-ARG APP_MODEL=deepedit
+# Arguments
+ARG MONAI_LABEL_TYPE=radiology
+ARG MONAI_LABEL_PATH=/opt/monai/app
+ARG MONAI_LABEL_TASK_NAME=Task09_Spleen
+ARG MONAI_LABEL_MODEL=deepedit
+ARG MONAI_LABEL_STUDIES=Task09_Spleen/imagesTr
+ARG MONAI_LABEL_INTERNAL_PORT=8000
 
 # Create the app directory
-RUN mkdir $APP_PATH
-WORKDIR $APP_PATH
+RUN mkdir $MONAI_LABEL_PATH
+WORKDIR $MONAI_LABEL_PATH
 
 # Download Radiology sample app to local directory
-RUN monailabel apps --name $APP_TYPE --download --output .
+RUN monailabel apps --name $MONAI_LABEL_TYPE --download --output .
 
 # Download Task 2 MSD dataset
-RUN monailabel datasets --download --name $APP_TASK_NAME --output .
+RUN monailabel datasets --download --name $MONAI_LABEL_TASK_NAME --output .
 
 # Start the Radiology app in MONAI label server and start annotating the downloaded images using deepedit model
-CMD monailabel start_server -p $APP_PORT --app $APP_TYPE --studies $APP_TASK_NAME/imagesTr --conf models $APP_MODEL
+CMD monailabel start_server -p $MONAI_LABEL_INTERNAL_PORT --app $MONAI_LABEL_TYPE --studies $MONAI_LABEL_STUDIES --conf models $MONAI_LABEL_MODEL

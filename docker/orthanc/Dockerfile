@@ -1,0 +1,15 @@
+FROM jodogne/orthanc-plugins
+
+ENV PG_HOST=${XNAT_DATASOURCE_URL} 
+ENV PG_PORT=5432
+ENV PG_USER=${XNAT_DATASOURCE_USERNAME}
+ENV PG_PASSWORD=${XNAT_DATASOURCE_PASSWORD}
+ENV PG_DB=orthanc
+ENV PG_INDEX_ENABLED=true
+ENV PG_STORAGE_ENABLED=false
+
+RUN apt-get update && apt-get -y install postgresql-client
+
+EXPOSE 8042
+
+CMD ["/etc/orthanc"]

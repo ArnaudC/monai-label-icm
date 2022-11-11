@@ -8,21 +8,21 @@ help() {
     echo ""
     echo " init            Initialize the project from scratch."
     echo " bash            Run a bash shell in monai label server."
-    echo " image           Rebuild docker image."
+    echo " images           Rebuild docker images."
 }
 
 init() {
     start
 }
 
-image() {
-    docker-compose build --no-cache
+images() {
+    docker-compose build --no-cache monai-docker
 }
 
 start() {
     docker-compose down
     docker-compose up -d
-    echo "Server started at http://localhost:$SERVER_PORT"
+    echo "Server started at http://localhost:$MONAI_LABEL_PORT"
     logs
 }
 
