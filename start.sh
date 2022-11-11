@@ -22,7 +22,7 @@ image() {
 start() {
     docker-compose down
     docker-compose up -d
-    echo "Server started at http://localhost:SERVER_PORT"
+    echo "Server started at http://localhost:$SERVER_PORT"
     logs
 }
 

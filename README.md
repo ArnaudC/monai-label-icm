@@ -1,13 +1,21 @@
 # Description
-MONAI Label is an intelligent open source image labeling and learning tool that enables users to create annotated datasets and build AI annotation models for clinical evaluation. MONAI Label enables application developers to build labeling apps in a serverless way, where custom labeling apps are exposed as a service through the MONAI Label Server.  
-![MonaiLogo](doc/MonaiLogo.jpg)
+MONAI Label is an intelligent open source image labeling and learning tool that enables users to create annotated datasets and build AI annotation models for clinical evaluation.  
+MONAI Label enables application developers to build labeling apps in a serverless way, where custom labeling apps are exposed as a service through the MONAI Label Server.  
+<p align="center">
+  <img src="doc/MonaiLogo.jpg" alt="Monai Label Server"/>
+</p>
+This Monai ICM version runs the label server in docker-compose.  
+
 
 # Installation
 ```bash
 cat /proc/driver/nvidia/version # check nvidia driver version
 sudo apt install nvidia-utils-510 # install matching nvidia driver
-./start.sh init
+./start.sh init # See OpenApi server at http://localhost:45681/
 ```
+
+# Official links
+https://docs.monai.io/projects/label/en/latest/quickstart.html
 
 # Monai options
 ## monailabel
