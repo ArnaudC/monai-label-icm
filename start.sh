@@ -7,6 +7,7 @@ help() {
     echo "Usage : sh start.sh [argument]"
     echo ""
     echo " init            Initialize the project from scratch."
+    echo " bash            Run a bash shell in monai label server."
     echo " image           Rebuild docker image."
 }
 
