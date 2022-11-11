@@ -3,7 +3,7 @@ services:
   monai-docker:
     build: ./docker/monai
     ports:
-      - "$MONAI_LABEL_PORT:8000"
+      - "$MONAI_LABEL_PORT:$MONAI_LABEL_PORT"
     shm_size: '2gb'
     deploy:
       resources:
