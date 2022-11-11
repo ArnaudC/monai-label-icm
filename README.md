@@ -8,7 +8,9 @@ This Monai ICM version runs the label server in docker-compose.
 ```bash
 cat /proc/driver/nvidia/version # check nvidia driver version
 sudo apt install nvidia-utils-510 # install matching nvidia driver
-./start.sh init # See OpenApi server at http://localhost:45681/ and Annotate the data at http://localhost:45681/ohif
+./start.sh init
+./start.sh send # Send a test session to orthanc
+ # See OpenApi server at http://localhost:45681/ and Annotate the data at http://localhost:45681/ohif
 ```
 Then either :
 - Use OHIF : Annotate the data in the DICOM server via the MONAI Label server at http://localhost:45681/ohif (https://docs.monai.io/projects/label/en/latest/quickstart.html#deepedit-annotation-using-ohif)

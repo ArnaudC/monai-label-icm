@@ -1,5 +1,5 @@
 #!/bin/bash
-# Requires 'docker' and 'docker-compose'. Usage: './start.sh' to list all commands and './start.sh init' to run the monai-label server.
+# Requires 'docker', 'docker-compose', 'dcmtk'. Usage: './start.sh' to list all commands and './start.sh init' to run the monai-label server.
 set -eox pipefail
 
 help() {
@@ -8,7 +8,8 @@ help() {
     echo ""
     echo " init            Initialize the project from scratch."
     echo " bash            Run a bash shell in monai label server."
-    echo " images           Rebuild docker images."
+    echo " images          Rebuild docker images."
+    echo " send            Send a test session to orthanc."
 }
 
 init() {
@@ -23,6 +24,7 @@ start() {
     docker-compose down
     docker-compose up -d
     echo "Server started at http://localhost:$MONAI_LABEL_PORT"
+    echo "Start annotating data at http://localhost:$MONAI_LABEL_PORT/ohif"
     logs
 }
 
@@ -41,6 +43,10 @@ logs() {
 
 bash() {
     docker-compose exec monai-docker bash
+}
+
+send() {
+    storescu +r +sd -aec ORTANC -xf /etc/dcmtk/storescu.cfg Default localhost $ORTHANC_DICOM_SCP_RECEIVER "$ORTHANC_TEST_SESSION_PATH"
 }
 
 main() {

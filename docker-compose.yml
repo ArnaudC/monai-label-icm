@@ -32,7 +32,7 @@ services:
       - 4242 # Dicom SCP Receiver
     ports:
       - 42893:8042 # Web access
-      - 41465:4242 # Input Dicom SCP Receiver (Output is in orthanc.json : DicomModalities)
+      - ORTHANC_DICOM_SCP_RECEIVER:4242 # Input Dicom SCP Receiver (Output is in orthanc.json : DicomModalities)
 
   # Postgres for orthanc
   postgres-docker:
