@@ -1,9 +1,7 @@
 # Description
 MONAI Label is an intelligent open source image labeling and learning tool that enables users to create annotated datasets and build AI annotation models for clinical evaluation.  
 MONAI Label enables application developers to build labeling apps in a serverless way, where custom labeling apps are exposed as a service through the MONAI Label Server.  
-<p align="center">
-  <img src="doc/MonaiLogo.jpg" alt="Monai Label Server"/>
-</p>
+<p align="center"><img src="doc/img/MonaiLogo.jpg" alt="Monai Label Server"/></p>
 This Monai ICM version runs the label server in docker-compose.  
 
 
@@ -13,9 +11,19 @@ cat /proc/driver/nvidia/version # check nvidia driver version
 sudo apt install nvidia-utils-510 # install matching nvidia driver
 ./start.sh init # See OpenApi server at http://localhost:45681/
 ```
+Then install either :
+- 3DSlicer plugin : https://docs.monai.io/projects/label/en/latest/quickstart.html#deepedit-annotation-using-ohif
+- DeepEdit Annotation Using OHIF : https://docs.monai.io/projects/label/en/latest/quickstart.html#deepedit-annotation-using-ohif
 
-# Official links
-https://docs.monai.io/projects/label/en/latest/quickstart.html
+# Architecture
+https://docs.monai.io/projects/label/en/latest/appdeployment.html
+<p align="center"><img src="doc/img/monai-server-application-callflow.svg" alt="Monai Label Server"/></p>
+
+# Create your Module
+MONAI Label aims to allow researchers to build labeling applications in a serverless way.  
+This means that MONAI Label applications are always ready-to-deploy via MONAI Label server.  
+https://docs.monai.io/projects/label/en/latest/modules.html
+<p align="center"><img src="doc/img/monai-modules.svg" alt="Monai Label Server"/></p>
 
 # Monai options
 ## monailabel
